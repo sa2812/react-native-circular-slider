@@ -62,6 +62,7 @@ export default class CircularSlider extends PureComponent {
     bgCircleColor: PropTypes.string,
     stopIcon: PropTypes.element,
     startIcon: PropTypes.element,
+    scrollY: PropTypes.number,
   }
 
   static defaultProps = {
@@ -151,7 +152,7 @@ export default class CircularSlider extends PureComponent {
     const stop = calculateArcCircle(segments - 1, segments, radius, startAngle, angleLength);
 
     return (
-      <View style={{ width: containerWidth, height: containerWidth }} onLayout={this.onLayout}>
+      <View key={scrollY} style={{ width: containerWidth, height: containerWidth }} onLayout={this.onLayout}>
         <Svg
           height={containerWidth}
           width={containerWidth}
